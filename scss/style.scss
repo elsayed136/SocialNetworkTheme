@@ -1,0 +1,163 @@
+@import "config";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $font-stack;
+  font-size: 1rem;
+  line-height: 1.6;
+  background-color: #fff;
+  color: #333;
+}
+
+// core style
+a {
+  text-decoration: none;
+  color: $primary-color;
+}
+
+img {
+  width: 100%;
+}
+
+ul {
+  list-style-type: none;
+}
+
+// Navbar
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem 2rem;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  top: 0;
+  border-bottom: 1px solid $primary-color;
+  opacity: 0.9;
+
+  ul {
+    display: flex;
+  }
+
+  a {
+    color: inherit;
+    padding: 0.5rem;
+    margin: 0rem 0.25rem;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}
+
+// Landing
+.landing {
+  position: relative;
+  height: 100vh;
+  background: url("../img/showcase.jpg") no-repeat center center/cover;
+
+  &-inner {
+    color: #fff;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+// Profiles Page
+.profile {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+
+// Profile Page
+.profile-grid {
+  display: grid;
+  grid-template-areas:
+    "top top"
+    "about about"
+    "exp edu"
+    "github github";
+
+  gap: 1rem;
+
+  .profile-top {
+    grid-area: top;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 250px;
+    }
+
+    a {
+      color: set-text-color($primary-color);
+      margin: 0 0.3rem;
+
+      &:hover {
+        color: darken(set-text-color($primary-color), 70%);
+      }
+    }
+  }
+  .profile-about {
+    grid-area: about;
+    text-align: center;
+
+    .skills {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+  }
+  .profile-exp {
+    grid-area: exp;
+  }
+  .profile-edu {
+    grid-area: edu;
+  }
+
+  .profile-exp > div,
+  .profile-edu > div {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px dotted #ccc;
+
+    &:last-child {
+      border: none;
+    }
+
+    p {
+      margin: 0.5rem 0;
+    }
+  }
+
+  .profile-github {
+    grid-area: github;
+
+    .repo {
+      display: flex;
+    }
+  }
+}
+
+@import "utilities";
+@import "form";
